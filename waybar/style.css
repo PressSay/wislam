@@ -43,8 +43,7 @@ tooltip {
 }
 
 #workspaces button:hover {
-    background: #11111b;
-    color: #cdd6f4;
+    color: #080808;
     border-radius: 10px;
 }
 
@@ -59,24 +58,27 @@ tooltip {
 #temperature,
 #workspaces,
 #tray,
-#backlight {
-    background: #1e1e2e;
-    opacity: 0.8;
+#backlight,
+#taskbar {
+    background: #F8F8FF;
+    opacity: 0.65;
     padding: 0px 10px;
-    margin: 3px 0px;
     margin-top: 10px;
-    border: 1px solid #181825;
+    border: 0px solid #181825;
 }
+
 
 #temperature {
     border-radius: 10px 0px 0px 10px;
+    color: #080808;
 }
 
 #temperature.critical {
-    color: #eba0ac;
+    color: #080808;
 }
 
 #backlight {
+    color: #080808;
     border-radius: 10px 0px 0px 10px;
 }
 
@@ -86,7 +88,7 @@ tooltip {
 }
 
 #workspaces {
-    background: #1e1e2e;
+    color: #080808;
     border-radius: 10px;
     margin-left: 10px;
     padding-right: 0px;
@@ -94,44 +96,47 @@ tooltip {
 }
 
 #custom-power_profile {
-    color: #a6e3a1;
+    color: #080808;
     border-radius: 10px 0px 0px 10px;
     margin-left: 10px;
     border-right: 0px;
+    font-size: 26px;
+    /*text-align: center;*/
 }
 
 #window {
+    color: #080808;
     border-radius: 10px;
     margin-left: 60px;
     margin-right: 60px;
 }
 
 #clock {
-    color: #fab387;
+    color: #080808;
     border-right: 0px;
 }
 
 #network {
-    color: #f9e2af;
+    color: #080808;
     border-radius: 10px 0px 0px 10px;
     border-left: 0px;
     border-right: 0px;
 }
 
 #bluetooth {
-    color: #89b4fa;
-    border-radius: 0px 10px 10px 0px;
-    margin-right: 10px
+    color: #080808;
+    border-left: 0px;
+    border-right: 0px;
 } 
 
 #pulseaudio {
-    color: #89b4fa;
+    color: #080808;
     border-left: 0px;
     border-right: 0px;
 }
 
 #pulseaudio.microphone {
-    color: #cba6f7;
+    color: #080808;
     border-left: 0px;
     border-right: 0px;
     border-radius: 0px 10px 10px 0px;
@@ -139,14 +144,15 @@ tooltip {
 }
 
 #battery {
-    color: #a6e3a1;
+    color: #080808;
     border-radius: 0 10px 10px 0;
-    margin-right: 10px;
     border-left: 0px;
+    margin-right: 10px
 }
 
 #custom-weather {
     border-radius: 0px 10px 10px 0px;
     border-right: 0px;
     margin-left: 0px;
+    color: #080808;
 }
