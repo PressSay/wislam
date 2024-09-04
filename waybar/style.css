@@ -1,158 +1,109 @@
 * {
     border: none;
-    border-radius: 0;
-    font-family: "JetBrainsMono Nerd Font";
-    font-weight: bold;
-    font-size: 16px;
-    min-height: 0;
+    font-size: 14px;
+    font-family: "JetBrainsMono Nerd Font,JetBrainsMono NF" ;
+    min-height: 16px;
+}
+
+.icon-size {
+  font-size: 25px;
 }
 
 window#waybar {
-    background: rgba(21, 18, 27, 0);
-    color: #cdd6f4;
+  background: transparent;
+  margin: 5px;
+ }
+
+#custom-logo {
+  padding: 0 10px;
+  font-size: 22px;
 }
 
-tooltip {
-    background: #1e1e2e;
-    border-radius: 10px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #11111b;
+.modules-right,
+.modules-center,
+.modules-left {
+    margin-top: 12px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    background: #F8F8FF;
 }
 
-#workspaces button {
-    padding: 5px;
-    color: #313244;
-    margin-right: 5px;
+.modules-right {
+  padding-left: 5px;
+  border-radius: 15px 0 0 15px;
 }
 
-#workspaces button.active {
-    color: #a6adc8;
+.modules-center {
+  padding: 0 15px;
+  border-radius: 15px 15px 15px 15px;
 }
 
-#workspaces button.focused {
-    color: #a6adc8;
-    background: #eba0ac;
-    border-radius: 10px;
+.modules-left {
+  border-radius: 0 15px 15px 0;
 }
 
-#workspaces button.urgent {
-    color: #11111b;
-    background: #a6e3a1;
-    border-radius: 10px;
-}
-
-#workspaces button:hover {
-    color: #080808;
-    border-radius: 10px;
-}
-
-#custom-power_profile,
-#custom-weather,
-#window,
-#clock,
 #battery,
+#custom-clipboard,
+#custom-colorpicker,
+#custom-powerDraw,
+#bluetooth,
 #pulseaudio,
 #network,
-#bluetooth,
-#temperature,
-#workspaces,
-#tray,
+#disk,
+#memory,
 #backlight,
-#taskbar {
-    background: #F8F8FF;
-    opacity: 0.65;
-    padding: 0px 10px;
-    margin-top: 10px;
-    border: 0px solid #181825;
+#cpu,
+#temperature,
+#custom-weather,
+#idle_inhibitor,
+#jack,
+#tray,
+#window,
+#workspaces,
+#clock {
+  padding: 0 5px;
+}
+#pulseaudio {
+  padding-top: 3px;
 }
 
-
-#temperature {
-    border-radius: 10px 0px 0px 10px;
-    color: #080808;
-}
-
-#temperature.critical {
-    color: #080808;
-}
-
-#backlight {
-    color: #080808;
-    border-radius: 10px 0px 0px 10px;
-}
-
-#tray {
-    border-radius: 10px;
-    margin-right: 10px;
-}
-
-#workspaces {
-    color: #080808;
-    border-radius: 10px;
-    margin-left: 10px;
-    padding-right: 0px;
-    padding-left: 5px;
-}
-
-#custom-power_profile {
-    color: #080808;
-    border-radius: 10px 0px 0px 10px;
-    margin-left: 10px;
-    border-right: 0px;
-    font-size: 26px;
-    /*text-align: center;*/
+#temperature.critical,
+#pulseaudio.muted {
+  color: #FF0000;
+  padding-top: 0;
 }
 
 #window {
-    color: #080808;
-    border-radius: 10px;
-    margin-left: 60px;
-    margin-right: 60px;
+  font-size: 16px;
 }
 
-#clock {
-    color: #080808;
-    border-right: 0px;
+
+#clock{
+  color: #080808;
 }
 
-#network {
-    color: #080808;
-    border-radius: 10px 0px 0px 10px;
-    border-left: 0px;
-    border-right: 0px;
+#battery.charging {
+    color: #ffffff;
+    background-color: #26A65B;
 }
 
-#bluetooth {
-    color: #080808;
-    border-left: 0px;
-    border-right: 0px;
-} 
-
-#pulseaudio {
-    color: #080808;
-    border-left: 0px;
-    border-right: 0px;
+#battery.warning:not(.charging) {
+    background-color: #ffbe61;
+    color: black;
 }
 
-#pulseaudio.microphone {
-    color: #080808;
-    border-left: 0px;
-    border-right: 0px;
-    border-radius: 0px 10px 10px 0px;
-    margin-right: 10px;
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
-#battery {
-    color: #080808;
-    border-radius: 0 10px 10px 0;
-    border-left: 0px;
-    margin-right: 10px
-}
-
-#custom-weather {
-    border-radius: 0px 10px 10px 0px;
-    border-right: 0px;
-    margin-left: 0px;
-    color: #080808;
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #080808;
+    }
 }

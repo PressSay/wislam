@@ -1,0 +1,223 @@
+{
+  "layer": "top", "position": "top",
+  "modules-left": ["custom/logo", "clock", "custom/weather", "disk", "memory", "cpu", "wlr/taskbar", "hyprland/window" ],
+  "modules-center": [  "hyprland/workspaces"],
+  "modules-right": ["tray",  "custom/clipboard", "backlight", "idle_inhibitor", "custom/colorpicker", "bluetooth", "pulseaudio", "pulseaudio#microphone", "network",  "battery" ],
+  "reload_style_on_change":true,
+
+  "custom/logo": {
+    "format": "",
+    "tooltip": false
+  },
+
+  "hyprland/workspaces": {
+	"format": "{icon}",
+	"format-icons": {
+		"1": "",
+		"2": "",
+		"3": "",
+		"4": "",
+		"5": "",
+		"6": "",
+		"active": "",
+		"default": "" 
+	},
+       "persistent-workspaces": {
+         "*": [ 2, 3, 4, 5, 6 ]
+       }
+  },
+
+  "idle_inhibitor":{
+    "format": "{icon}",
+    "format-icons": {
+      "activated":"",
+      "deactivated":"󰈉"
+    }
+  },
+
+  "custom/weather": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/weather.sh",
+
+    "on-click": "librewolf https://wttr.in"
+  },
+
+  "custom/clipboard":{
+    "format":"",
+    "on-click": "cliphist list | rofi -dmenu | cliphist decode | wl-copy",
+    "interval":86400
+  },
+
+  "wlr/taskbar": {
+          "format": "{icon}",
+          "icon-size": 16,
+          "icon-theme": "Numix-Circle",
+          "tooltip-format": "{title}",
+          "on-click": "activate",
+          "on-click-middle": "close",
+          "on-click-right": "minimize"
+  },
+
+  "clock": {
+        "format": "{:%I:%M:%S %p}",
+        "interval":1,
+        "tooltip-format": "\n<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "calendar-weeks-pos": "right",
+        "today-format": "<span color='#7645AD'><b><u>{}</u></b></span>",
+        "format-calendar": "<span color='#aeaeae'><b>{}</b></span>",
+        "format-calendar-weeks": "<span color='#aeaeae'><b>W{:%V}</b></span>",
+        "format-calendar-weekdays": "<span color='#aeaeae'><b>{}</b></span>"
+    },
+
+    "bluetooth": {
+    "format-on": "",
+    "format-off": "",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂴",
+    "format-connected-battery": "{device_battery_percentage}% 󰂴",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "rofi-bluetooth",
+  },
+
+  "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "  {signalStrength}%",
+        "format-ethernet": "{ipaddr}/{cidr}",
+        "tooltip-format": "{essid} - {ifname} via {gwaddr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}:{essid} {ipaddr}/{cidr}"
+    },
+
+  "battery": {
+      "interval":1,
+          "states": {
+              "good": 95,
+              "warning": 30,
+              "critical": 20
+          },
+          "format": "{capacity}%  <span font='12'>{icon}</span>",
+          "format-charging": "{capacity}% <span font='12'>󰂄 </span>",
+          "format-plugged": "{capacity}% <span font='12'>󰂄  </span>",
+          "format-alt": "{time} <span font='12'>{icon}</span>",
+              "format-icons": [
+            "󰁻",
+            "󰁼",
+            "󰁾",
+            "󰂀",
+            "󰂂",
+            "󰁹"
+          ],
+  },
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+    ],
+    "on-scroll-down": "brightnessctl set 1%-",
+    "on-scroll-up": "brightnessctl set 1%+",
+    "smooth-scrolling-threshold": 1
+    },
+
+  "disk": {
+      "interval": 30,
+      "format": "  {percentage_used}%",
+      "path": "/",
+      "on-click": "wofi --show drun"
+    },
+
+    "custom/colorpicker": {
+      "format": "{}",
+      "return-type": "json",
+      "interval": "once",
+      "exec": "~/.config/waybar/scripts/colorpicker.sh -j",
+      "on-click": "sleep 1 && ~/.config/waybar/scripts/colorpicker.sh",
+      "signal": 1
+    },
+
+    "cpu": {
+        "interval": 1,
+        "format": " {usage}%",
+        "min-length": 6,
+        "max-length": 6,
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+  },
+
+  "memory": {
+    "format": " {percentage}%"
+  },
+
+  "hyprland/window": {
+      "format": "( {class} )",
+      "rewrite": {
+          "(.*) - LibreWolf": "🌎 $1",
+          "(.*) - zsh": "> [$1]"
+      }
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": " Muted",
+    "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", "", ""]
+    },
+
+    "scroll-step": 5,
+    "on-click": "pamixer -t",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+  },
+
+  "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
+        "on-click": "pamixer --default-source -t",
+        "on-scroll-up": "pamixer --default-source -i 5",
+        "on-scroll-down": "pamixer --default-source -d 5",
+        "scroll-step": 5
+    },
+
+  "jack": {
+      "format": "{} 󱎔",
+      "format-xrun": "{xruns} xruns",
+      "format-disconnected": "DSP off",
+      "realtime": true
+  },
+
+  "tray": {
+          "icon-size": 18,
+          "spacing": 10
+  },
+
+  "upower": {
+      "show-icon": false,
+      "hide-if-empty": true,
+      "tooltip": true,
+      "tooltip-spacing": 20
+  },
+
+}
+
