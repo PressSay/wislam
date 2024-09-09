@@ -129,9 +129,9 @@
       "",
       "",
     ],
-    "on-scroll-down": "brightnessctl set 1%-",
-    "on-scroll-up": "brightnessctl set 1%+",
-    "smooth-scrolling-threshold": 1
+    "on-scroll-down": "brightnessctl set 5%-",
+    "on-scroll-up": "brightnessctl set 5%+",
+    "smooth-scrolling-threshold": 5
     },
 
   "disk": {
@@ -194,9 +194,9 @@
         "format": "{format_source}",
         "format-source": " {volume}%",
         "format-source-muted": " Muted",
-        "on-click": "pamixer --default-source -t",
-        "on-scroll-up": "pamixer --default-source -i 5",
-        "on-scroll-down": "pamixer --default-source -d 5",
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-scroll-up": "pactl set-source-mute @DEFAULT_SOURCE +5%",
+        "on-scroll-down": "pactl set-source-mute @DEFAULT_SOURCE -5%",
         "scroll-step": 5
     },
 
